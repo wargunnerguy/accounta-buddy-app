@@ -2,6 +2,7 @@ const baseHref = process.env.BASE_HREF || '/';
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -29,12 +30,14 @@ export default {
     '../node_modules/@ionic/core/css/structure.css',
     '../node_modules/@ionic/core/css/typography.css',
     '../node_modules/@ionic/core/css/ionic.bundle.css',
+    'swiper/css/swiper.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     // add created plugin:
     { src: '~/plugins/ionic.js', mode: 'client' },
+    { src: '@/plugins/nuxt-swiper-plugin.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,7 +46,6 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
   ],
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -58,6 +60,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // Add this to make Nuxt work with Swiper 8
+    standalone: true,
+    extend(config, ctx) {
+    },
   },
   generate: {
     routes: [
