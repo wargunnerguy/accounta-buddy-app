@@ -38,6 +38,7 @@ export default {
     // add created plugin:
     { src: '~/plugins/ionic.js', mode: 'client' },
     { src: '@/plugins/nuxt-swiper-plugin.js', mode: 'client' },
+    { src: '@/plugins/gapi.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
